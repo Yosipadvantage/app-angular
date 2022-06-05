@@ -1,0 +1,22 @@
+<div class="container">
+
+    <form [formGroup]="loginForm" (ngSubmit)="registerUser()">
+      <h2>Registrarse</h2>
+        <input type="text" placeholder="Username" formControlName="username"/>  
+        <p class="ngError" *ngIf="usernameControl.hasError('required') && (usernameControl.touched)">Campo requerido</p>
+       
+
+
+        <input type="text" placeholder="Email" formControlName="email"/>  
+        <p class="ngError" *ngIf="emailControl.hasError('required') && (emailControl.touched || emailControl.dirty)" >Campo requqerido</p>
+        <p class="ngError" *ngIf="emailControl.hasError('email') && (emailControl.touched )" >Email invalido</p>
+        <input type="text" placeholder="Password" formControlName="password"/>  
+        <p class="ngError" *ngIf="passwordControl.invalid && (passwordControl.touched || passwordControl.dirty)">Minimo 8 caracteres</p>
+        
+        <button [disabled]="loginForm.invalid">Registrarse</button>
+      </form>
+      
+
+</div>
+
+
