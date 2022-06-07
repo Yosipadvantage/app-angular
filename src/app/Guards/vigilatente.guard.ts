@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { UserAuthService } from '../Services/user-auth.service';
+import { StateService } from '../Services/state.service';
+
 
 
 @Injectable({
@@ -9,7 +10,9 @@ import { UserAuthService } from '../Services/user-auth.service';
 })
 export class VigilatenteGuard implements CanActivate {
 
-  constructor(private servicioHttp : UserAuthService){}
+  
+  constructor(private servicio : StateService){}
+  
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
